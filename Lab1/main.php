@@ -34,6 +34,7 @@ if (!isset($_SESSION['requests']) || !is_array($_SESSION['requests'])) {
 
         if (input.value.length > 8) {
             input.value = input.value.slice(0, -1);
+
         }
     }
 
