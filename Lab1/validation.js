@@ -18,7 +18,7 @@ var flagR = true
 enterY.addEventListener('input', function() {
     enterY.style = styleY
 
-    if (isNaN(enterY.value) && enterY.value && enterY.value!='-' || !isNaN(enterY.value) && (Number(enterY.value) < -3 || Number(enterY.value) > 5 )) {
+    if (isNaN(enterY.value) && enterY.value && enterY.value!='-' || !isNaN(enterY.value) && (Number(enterY.value) < -5 || Number(enterY.value) > 5 )) {
         setTimeout(function() {
             enterY.value = ""
             enterY.style.border = '3px solid red'
