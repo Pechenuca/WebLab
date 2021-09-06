@@ -1,147 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>PIPi</title>
+    <meta charset="UTF-8">
+    <title> Лабораторная работа №1</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body onload="drawCanvas()">
 
-<table class="header-table">
-    <tbody>
-    <tr class="header-tr">
-        <h1 class="header-text">
-            <span> Epifanov Maxim P3232 Var 2806 </span>
-        </h1>
-    </tr>
-    </tbody>
-</table>
-<table>
-    <tr>
-        <td>
-    <tr>
-        <td>
-            <svg width="300" height="300" class="svg-graph">
+<div id="container">
+    <div id="header"></div>
+    <h2>Лабораторная работа №1</h2>
+</div>
 
-                <!--            Линии оси-->
-
-                <line class="axis" x1="0" x2="300" y1="150" y2="150" stroke="green"></line>
-                <line class="axis" x1="150" x2="150" y1="0" y2="300" stroke="black"></line>
-                <polygon points="150,0 144,15 156,15" stroke="black"></polygon>
-                <polygon points="300,150 285,156 285,144" stroke="black"></polygon>
-
-                <line class="coor-line" x1="200" x2="200" y1="155" y2="145" stroke="black"></line>
-                <line class="coor-line" x1="250" x2="250" y1="155" y2="145" stroke="black"></line>
-
-                <line class="coor-line" x1="50"  x2="50"  y1="155" y2="145" stroke="black"></line>
-                <line class="coor-line" x1="100" x2="100" y1="155" y2="145" stroke="black"></line>
-
-                <line class="coor-line" x1="145" x2="155" y1="100" y2="100" stroke="black"></line>
-                <line class="coor-line" x1="145" x2="155" y1="50"  y2="50"  stroke="black"></line>
-
-                <line class="coor-line" x1="145" x2="155" y1="200" y2="200" stroke="black"></line>
-                <line class="coor-line" x1="145" x2="155" y1="250" y2="250" stroke="black"></line>
-
-                <text class="coor-text" x="195" y="140">R/2</text>
-                <text class="coor-text" x="248" y="140">R</text>
-
-                <text class="coor-text" x="40" y="140">-R</text>
-                <text class="coor-text" x="90" y="140">-R/2</text>
-
-                <text class="coor-text" x="160" y="105">R/2</text>
-                <text class="coor-text" x="160" y="55">R</text>
-
-                <text class="coor-text" x="160" y="205">-R/2</text>
-                <text class="coor-text" x="160" y="255">-R</text>
-
-                <text class="axis-text" x="290" y="170">X</text>
-                <text class="axis-text" x="160" y="13">Y</text>
-
-                <!-- first figure-->
-                <polygon class="rectangle-figure" points="50,150 50,200 150,200, 150,150"
-                         fill="wheat"  fill-opacity="0.5" ></polygon>
-
-                <!-- second figure-->
-                <polygon class="triangle-figure" points="150,150 150,100 200,150"
-                         fill="wheat" fill-opacity="0.5" ></polygon>
-
-                <!-- third figure-->
-                <path class="circle-figure" d="M 250 150 A 100 100, 180, 0, 1, 150 250 L 150 150 Z"
-                      fill="wheat" fill-opacity="0.5" ></path>
-
-                <circle r="0" cx="150" cy="150" id="target-dot"></circle>
-
-            </svg>
-        </td>
-    </tr>
-
-</table>
-<table>
-    <tbody>
+<div id="sidebar">
+    <h2>График</h2>
+    <section class="graph">
+    <canvas id="canvas" width="504" height="504"></canvas>
 
 
-    <form class = "validateForm" action="main.php" method="GET">
-        <tr class="checkBoxX">
-            <td class="form-control-title" id="enterx"> X:</td>
-            <td>
-                <label for="checkboxX-4">-4</label><input id="checkboxX-4" name="checkboxX" type="radio" value="-4"
-            />
-                <label for="checkboxX-3">-3</label><input id="checkboxX-3" name="checkboxX" type="radio" value="-3"
-            />
-                <label for="checkboxX-3">-2</label><input id="checkboxX-2" name="checkboxX" type="radio" value="-2"
-            />
-                <label for="checkboxX-1">-1</label><input id="checkboxX-1" name="checkboxX" type="radio" value="-1"
-            />
-                <label for="checkboxX0">0</label><input id="checkboxX0" name="checkboxX" type="radio" value="0"
-            />
-                <label for="checkboxX1">1</label><input id="checkboxX1" name="checkboxX" type="radio" value="1"
-            />
-                <label for="checkboxX2">2</label><input id="checkboxX2" name="checkboxX" type="radio" value="2"
-            />
-                <label for="checkboxX3">3</label><input id="checkboxX3" name="checkboxX" type="radio" value="3"
-            />
-                <label for="checkboxX4">4</label><input id="checkboxX4" name="checkboxX" type="radio" value="4"
-            />
-            </td>
-        </tr>
-
-        <tr class="textY">
-            <td class="form-control-title" id=" entery"> Y:</td>
-            <td>
-                <input type="text" id="textY" name="textY" oninput="validate(this)" required>
-            </td>
-        </tr>
-
-        <tr class="checkBoxR">
-            <td class="form-control-title" id="enterr"> R:</td>
-            <td>
-                <label for="r1">1</label><input id="r1" name="radius" type="radio" value="1"/>
-                <label for="r2">2</label><input id="r2" name="radius" type="radio" value="2"/>
-                <label for="r3">3</label><input id="r3" name="radius" type="radio" value="3"/>
-                <label for="r4">4</label><input id="r4" name="radius" type="radio" value="4"/>
-                <label for="r5">5</label><input id="r5" name="radius" type="radio" value="5"/>
-            </td>
-        </tr>
-
-        <td id="buttons">
-            <button class="butt" name="sendButton" type="submit">Отправить...</button>
-        </td>
-
-    </form>
-</table>
+    </section>
 
 
+    <div id="table">
+        <h2>Таблица</h2>
+        <form id="request-form">
+            <div class="form_control-title" id="enter_x">X:</div>
+            <div id="options_x"></div>
 
-<script src="validation.js"></script>
+            <div class="text_Y">
+                <div class="form-control-title" id="enter_y"> Y:</div>
+                <div>
+                    <input type="text" id="y" name="y" oninput="validateInput()" onchange="validateInput()">
+                </div>
+            </div>
 
-<table>
-    <tr class="manageButtons">
-        <td>
-            <form action="clearHistory.php" method="get">
-                <button>Очистить сессионную историю</button>
-            </form>
-        </td>
-    </tr>
-</table>
+            <div class="text_R">
+                <div class="form-control-title" id="enter_r"> R:</div>
+                <div>
+                    <input type="text" id="r" name="r" oninput="validateInput()" onchange="validateInput()">
+                </div>
+            </div>
+            <div id="submitButton">
+                <button class="butt" id="submit-btn" name="sendButton" type="submit">Отправить...</button>
+            </div>
+        </form>
+
+    </div>
+    <div>
+        <table class="results-table">
+            <thead>
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>RESULT</th>
+            <th>Current Time</th>
+            <th>Computation Time</th>
+            </thead>
+            <tbody id="results_table_body">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/scripts.js"></script>
+
 </body>
 </html>

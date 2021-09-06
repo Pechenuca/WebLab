@@ -1,67 +1,7 @@
-table {
-    border-collapse: collapse;
-}
-table th,
-table td {
-    padding: 0 3px;
-}
-table.results th,
-table.results td {
-    border: 1px solid #000;
-}
 
-[id = "picture.jpg"] {
-    width: 50%;
-    height: 50%;
 
+#canvas {
+    height: 30vh;
+    margin: auto;
+    display: block;
 }
-
-.results {
-    border: 2px white solid;
-    color: #ececec;
-}
-
-.form-control-title {
-    border: 2px #ececec;
-    color: #ececec;
-
-}
-
-html {
-    background-color: #ff7171;
-
-}
-
-.header-text {
-    color: #ececec;
-    margin-left: 50%;
-    margin-right: 50%;
-    width: 8em
-}
-
-.form-control-title td input {
-    border: 2px white solid;
-}
-
-.checkBoxX td {
-    border: 2px #ececec solid;
-    color: #ececec;
-}
-.checkBoxR td {
-    border: 2px #ececec solid;
-    color: #ececec;
-}
-
-.textY td {
-    border: 2px #ececec solid;
-    color: #ececec;
-}
-
-.inRes {
-    border: 2px #ececec solid;
-}
-
-.svg {
-    margin-bottom: 40px;
-}
-
