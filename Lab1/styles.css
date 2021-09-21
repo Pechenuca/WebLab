@@ -1,7 +1,107 @@
-
+.x_row {
+    width: 310px;
+    height: 36px;
+    background-color: #F7D59C;
+    border: 0;
+    outline: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    position: relative;
+    float: left;
+    margin-bottom: 26px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.y_row {
+    width: 217px;
+    height: 36px;
+    background-color: #F7D59C;
+    border-radius: 15px;
+    outline: none;
+    padding: 10px 20px;
+    margin-bottom: 26px;
+    color: #ffffff;
+    position: relative;
+    float: left;
+    display: flex;
+    flex-direction: row;
+}
+.r_row {
+    width: 217px;
+    height: 36px;
+    background-color: #F7D59C;
+    border-radius: 15px;
+    outline: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    position: relative;
+    float: left;
+    display: flex;
+    flex-direction: row;
+}
+#fr {
+    display: flex;
+    flex-direction: column;
+}
 
 #canvas {
-    height: 30vh;
     margin: auto;
     display: block;
+
+}
+.select_button {
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    border-color: white;
+    margin-bottom: auto;
+    margin-top: auto;
+
+}
+#header {
+    background-color: #5E454B;
+    color: #F7D59C;
+}
+.letter {
+    height: 17px;
+    width: 12px;
+    padding-right: 20px;
+
+}
+#x_buttons{
+    margin-bottom: auto;
+    margin-top: auto;
+    padding-left: 30px;
+}
+.letter {
+    margin-bottom: auto;
+    margin-top: auto;
+    stroke: #5E454B;
+}
+.y_text {
+    margin-bottom: auto;
+    margin-top: auto;
+    padding-right: 30px;
+}
+.r_text {
+    margin-bottom: auto;
+    margin-top: auto;
+    padding-right: 30px;
+}
+#button_row {
+    margin-bottom: 26px;
+}
+#check {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+#canvas {
+    display: flex;
+}
+.form-table {
+    display: flex;
+}
+#sidebar {
+    flex-direction: row;
 }

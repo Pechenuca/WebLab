@@ -20,9 +20,6 @@ function getPhysicalY(y) {
 }
 
 
-/*
-* Taking a life the canvas
-* */
 function drawCanvas() {
     if (!canvasCtx) {
         alert('your browser doesn\'t support canvas');
@@ -31,25 +28,25 @@ function drawCanvas() {
 
     canvasCtx.clearRect(0, 0, width, height);
     canvasCtx.font='8px sans-serif';
-    canvasCtx.strokeStyle = "rgba(255,255,255,0.8)";
-    canvasCtx.fillStyle = "rgba(255,255,255,0.8)";
+    canvasCtx.strokeStyle = "rgba(247, 213, 156, 1)";
+    canvasCtx.fillStyle = "rgba(247, 213, 156, 1)";
 
     //circle on the right up
     canvasCtx.beginPath();
     canvasCtx.moveTo(getPhysicalX(0), getPhysicalY(0));
-    canvasCtx.arc(getPhysicalX(0), getPhysicalY(0), R, 0, -Math.PI / 2, true);
+    canvasCtx.arc(getPhysicalX(0), getPhysicalY(0), R/2, 0, -Math.PI / 2, true);
     canvasCtx.closePath();
     canvasCtx.fill();
     canvasCtx.stroke();
 
     //square in the right down
-    canvasCtx.fillRect(getPhysicalX(0), getPhysicalY(0), R, R);
+    canvasCtx.fillRect(getPhysicalX(0)-R, getPhysicalY(0), R, R/2);
 
-    //triangle
+    //triangle*
     canvasCtx.beginPath();
-    canvasCtx.moveTo(getPhysicalX(0)-R/2, getPhysicalY(0));
+    canvasCtx.moveTo(getPhysicalX(0)-R, getPhysicalY(0));
     canvasCtx.lineTo(getPhysicalX(0), getPhysicalY(0));
-    canvasCtx.lineTo(getPhysicalX(0), getPhysicalY(0)-R/2);
+    canvasCtx.lineTo(getPhysicalX(0), getPhysicalY(0)-R);
     canvasCtx.closePath();
     canvasCtx.fill();
     canvasCtx.stroke();
@@ -90,7 +87,7 @@ function drawCanvas() {
     canvasCtx.fillText('Y', getPhysicalX(0) - 10, maxY + limitMargin)
 
     // drawing tick marks
-    let valR = $("#r").val();
+    let valR = data.r;
     const startTickX = width / 1.95, finishTickX = width / 2.05;
     const startTickY = height / 1.9, finishTickY = height / 2.1;
 

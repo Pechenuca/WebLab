@@ -1,3 +1,6 @@
+let data = {
+    x:0, y:0, r:0
+}
 $(document).ready(function () {
     if (localStorage.getItem("results") != null) {
         let localData = JSON.parse(localStorage.getItem("results"));
@@ -5,12 +8,20 @@ $(document).ready(function () {
     }
 });
 
-const valuesX = ['-4', '-3', '-2', '-1', '0', '1', '2', '3', '4'];
+function set_x(value) {
+    data.x = value
+}
 
-for (const number of valuesX) {
-    $('#options_x')
-        .append(`<input type="button" id="${number}" name="x[]" value="${number}" form="request-form">`)
+function set_y(value) {
+    data.y = parseFloat(value)
+}
 
+function set_r(value) {
+    data.r = parseFloat(value)
+}
+
+function validateX() {
+    return true
 }
 
 function validateY(input) {
@@ -30,29 +41,27 @@ function validateR(input) {
 }
 
 function validateInput() {
-    var validY, validR
-    validY = validateY($('input#y').val())
+    var validX, validY, validR;
+    validY = validateY(data.y);
+    validR = validateR(data.r);
+    validX = validateX(data.x);
+    console.log(validX + ' ' + validY + ' ' + validR + ' ' + data.x)
 
-    validR = validateR($('input#r').val())
+    $('#submit-btn').attr('disabled', !(validX && validY && validR));
 
-    $('#submit-btn').attr('disabled', !(validY && validR))
+    return validX && validY && validR;
 
-    return validY && validR
 }
 
 
-/*
-* send data async
-* */
 $('#request-form').submit(function (event) {
     event.preventDefault()
     if (!validateInput()) {
-        alert('at least one checkbox selected, the radio selected and a nice number for Y');
+        alert('Заполните все поля формы');
         return;
     }
 
     let action = "main.php";
-    let data = $(this).serialize();
 
     $.post(action, data, function (response) {
         if (response.RESULT_CODE === '0') {
@@ -63,8 +72,8 @@ $('#request-form').submit(function (event) {
                 drawPoint(item.x, item.y, item.r)
             })
         } else {
-            alert(response.RESULTS)
-            console.log(response.RESULTS)
+            alert(response)
+            console.log(response)
         }
     });
 });
@@ -76,7 +85,6 @@ function addToLocalStorage(item) {
     localData.push(item)
     localStorage.setItem("results", JSON.stringify(localData))
 }
-
 
 /*
 * Adding results to the table
