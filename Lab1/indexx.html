@@ -16,12 +16,12 @@
 
 <div id="sidebar">
 
-
     <div class="form-table">
-        <form id="request-form">
+        <form id="request-form" class="request">
+            <div class="x_row">
             <div class="letter" id="enter_x">X:</div>
 
-            <div id="x_buttons ">
+            <div class="x_buttons">
                 <input class="select_button" type="button" name="x" id="1" value="-3" onclick="set_x(-3)">
                 <input class="select_button" type="button" name="x" id="2" value="-2" onclick="set_x(-2)">
                 <input class="select_button" type="button" name="x" id="3" value="-1" onclick="set_x(-1)">
@@ -32,8 +32,9 @@
                 <input class="select_button" type="button" name="x" id="8" value="4" onclick="set_x(4)">
                 <input class="select_button" type="button" name="x" id="9" value="5" onclick="set_x(5)">
             </div>
+            </div>
 
-            <div class="text_Y">
+            <div class="form-table text_Y">
                 <div class="letter" id="enter_y"> Y:</div>
                 <div>
                     <input type="text" id="y" name="y"
@@ -42,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="text_R">
+            <div id="r-row" class="form-table text_R">
                 <div class="letter" id="enter_r"> R:</div>
                 <div>
                     <input type="text" id="r" name="r"

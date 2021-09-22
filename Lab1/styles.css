@@ -1,4 +1,11 @@
-.x_row {
+html {
+    background-color: #5e464d;
+}
+h2 {
+    background-color: #5e464d;
+    color: #e4a663;
+}
+.form-table {
     width: 310px;
     height: 36px;
     background-color: #e4a663;
@@ -13,102 +20,85 @@
     display: flex;
     flex-direction: row;
 }
-.y_row {
+
+.text_Y {
+    width: 217px ;
+    height: 36px;
+
+}
+.text_R {
     width: 217px;
     height: 36px;
-    background-color: #e4a663;
-    border-radius: 15px;
-    outline: none;
-    padding: 10px 20px;
-    margin-bottom: 26px;
-    color: #ffffff;
-    position: relative;
-    float: left;
-    display: flex;
-    flex-direction: row;
-}
-.r_row {
-    width: 217px;
-    height: 36px;
-    background-color: #e4a663;
-    border-radius: 15px;
-    outline: none;
-    padding: 10px 20px;
-    color: #ffffff;
-    position: relative;
-    float: left;
-    display: flex;
-    flex-direction: row;
-}
-#fr {
-    display: flex;
-    flex-direction: column;
-}
-
-#canvas {
-    margin: auto;
-    display: block;
+    color:red;
 
 }
-.select_button {
-    height: 23px;
-    width: 23px;
-    border-radius: 50%;
-    border-color: white;
-    margin-bottom: auto;
-    margin-top: auto;
-
-}
-h2 {
-    background-color: #5e464d;
-    color: #e4a663;
-}
-
-#x_buttons{
+#x_buttons.select_button{
     margin-bottom: auto;
     margin-top: auto;
     padding-left: 30px;
+    color: #e4a663
 }
-.letter {
-    margin-bottom: auto;
-    margin-top: auto;
-    color: #e4a663;
-}
-#x_buttons.select_button {
-    color: #e4a663;
-}
-.y_text {
-    margin-bottom: auto;
-    margin-top: auto;
-    padding-right: 30px;
-}
-.r_text {
-    margin-bottom: auto;
-    margin-top: auto;
-    padding-right: 30px;
-}
-#button_row {
-    margin-bottom: 26px;
-}
-#check {
-    margin-bottom: auto;
-    margin-top: auto;
-}
-#canvas {
-    display: flex;
-}
-.form-table {
-    display: flex;
-}
-#sidebar {
-    display: flex;
-    flex-direction: row;
-}
+/*#fr {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
 
-.results {
-    color: #e4a663;
-}
-html {
-    background-color: #5e464d;
-}
+/*#canvas {*/
+/*    margin: auto;*/
+/*    display: block;*/
+
+/*}*/
+/*.select_button {*/
+/*    height: 23px;*/
+/*    width: 23px;*/
+/*    border-radius: 50%;*/
+/*    border-color: white;*/
+/*    margin-bottom: auto;*/
+/*    margin-top: auto;*/
+
+/*}*/
+
+
+
+/*.letter {*/
+/*    margin-bottom: auto;*/
+/*    margin-top: auto;*/
+/*    color: #e4a663;*/
+/*    display: flex;*/
+/*}*/
+/*#x_buttons.select_button {*/
+/*    color: #e4a663;*/
+/*}*/
+/*.y_text {*/
+/*    margin-bottom: auto;*/
+/*    margin-top: auto;*/
+/*    padding-right: 30px;*/
+/*}*/
+/*.r_text {*/
+/*    margin-bottom: auto;*/
+/*    margin-top: auto;*/
+/*    padding-right: 30px;*/
+/*}*/
+/*#button_row {*/
+/*    margin-bottom: 26px;*/
+/*}*/
+/*#check {*/
+/*    margin-bottom: auto;*/
+/*    margin-top: auto;*/
+/*}*/
+/*#canvas {*/
+/*    display: flex;*/
+/*}*/
+/*.form-table {*/
+/*    display: flex;*/
+/*}*/
+/*#sidebar {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*}*/
+
+/*.results {*/
+/*    color: #e4a663;*/
+/*}*/
+
 
