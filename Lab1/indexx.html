@@ -15,11 +15,11 @@
 </div>
 
 <div id="sidebar">
-    <div class="canvas"><canvas id="canvas"></canvas></div>
+
 
     <div class="form-table">
         <form id="request-form">
-            <div class="form_control-title" id="enter_x">X:</div>
+            <div class="letter" id="enter_x">X:</div>
 
             <div id="x_buttons ">
                 <input class="select_button" type="button" name="x" id="1" value="-3" onclick="set_x(-3)">
@@ -34,7 +34,7 @@
             </div>
 
             <div class="text_Y">
-                <div class="form-control-title" id="enter_y"> Y:</div>
+                <div class="letter" id="enter_y"> Y:</div>
                 <div>
                     <input type="text" id="y" name="y"
                            class="form-control" form="request-form"
@@ -43,7 +43,7 @@
             </div>
 
             <div class="text_R">
-                <div class="form-control-title" id="enter_r"> R:</div>
+                <div class="letter" id="enter_r"> R:</div>
                 <div>
                     <input type="text" id="r" name="r"
                            class="form-control" form="request-form"
@@ -55,23 +55,24 @@
                 <button class="butt" id="submit-btn" name="sendButton" type="submit">Отправить...</button>
             </div>
         </form>
-</div>
+
     </div>
-    <div>
+    <div class="canvas"><canvas id="canvas"></canvas></div>
+    <div class="results">
         <table class="results-table">
             <thead>
-            <div>X</div>
-            <div>Y</div>
-            <div>R</div>
-            <div>RESULT</div>
-            <div>Current Time</div>
-            <div>Computation Time</div>
+            <tr> X </tr>
+            <tr> Y </tr>
+            <tr> R </tr>
+            <tr> RESULT </tr>
+            <tr> Current Time </tr>
+            <tr> Computation Time </tr>
             </thead>
             <tbody id="results_table_body">
             </tbody>
         </table>
     </div>
-
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/canvas.js"></script>
 <script src="js/scripts.js"></script>

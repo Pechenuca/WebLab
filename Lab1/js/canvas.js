@@ -28,8 +28,8 @@ function drawCanvas() {
 
     canvasCtx.clearRect(0, 0, width, height);
     canvasCtx.font='8px sans-serif';
-    canvasCtx.strokeStyle = "rgba(247, 213, 156, 1)";
-    canvasCtx.fillStyle = "rgba(247, 213, 156, 1)";
+    canvasCtx.strokeStyle = '#212529';
+    canvasCtx.fillStyle = "#e4a663";
 
     //circle on the right up
     canvasCtx.beginPath();
@@ -55,8 +55,8 @@ function drawCanvas() {
     //draw Axis
     const limitMargin = 15;
     canvasCtx.save();
-    canvasCtx.strokeStyle = "black";
-    canvasCtx.fillStyle = "black";
+    canvasCtx.strokeStyle = "#e4a663";
+    canvasCtx.fillStyle = "#e4a663";
 
     // +Y axis
     canvasCtx.beginPath();

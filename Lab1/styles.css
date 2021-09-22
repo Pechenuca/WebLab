@@ -1,7 +1,7 @@
 .x_row {
     width: 310px;
     height: 36px;
-    background-color: #F7D59C;
+    background-color: #e4a663;
     border: 0;
     outline: none;
     padding: 10px 20px;
@@ -16,7 +16,7 @@
 .y_row {
     width: 217px;
     height: 36px;
-    background-color: #F7D59C;
+    background-color: #e4a663;
     border-radius: 15px;
     outline: none;
     padding: 10px 20px;
@@ -30,7 +30,7 @@
 .r_row {
     width: 217px;
     height: 36px;
-    background-color: #F7D59C;
+    background-color: #e4a663;
     border-radius: 15px;
     outline: none;
     padding: 10px 20px;
@@ -59,16 +59,11 @@
     margin-top: auto;
 
 }
-#header {
-    background-color: #5E454B;
-    color: #F7D59C;
+h2 {
+    background-color: #5e464d;
+    color: #e4a663;
 }
-.letter {
-    height: 17px;
-    width: 12px;
-    padding-right: 20px;
 
-}
 #x_buttons{
     margin-bottom: auto;
     margin-top: auto;
@@ -77,7 +72,10 @@
 .letter {
     margin-bottom: auto;
     margin-top: auto;
-    stroke: #5E454B;
+    color: #e4a663;
+}
+#x_buttons.select_button {
+    color: #e4a663;
 }
 .y_text {
     margin-bottom: auto;
@@ -103,5 +101,14 @@
     display: flex;
 }
 #sidebar {
+    display: flex;
     flex-direction: row;
 }
+
+.results {
+    color: #e4a663;
+}
+html {
+    background-color: #5e464d;
+}
+
