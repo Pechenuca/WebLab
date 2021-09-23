@@ -28,7 +28,7 @@ function drawCanvas() {
 
     canvasCtx.clearRect(0, 0, width, height);
     canvasCtx.font='8px sans-serif';
-    canvasCtx.strokeStyle = '#212529';
+    canvasCtx.strokeStyle = '#e4a663';
     canvasCtx.fillStyle = "#e4a663";
 
     //circle on the right up
@@ -55,7 +55,7 @@ function drawCanvas() {
     //draw Axis
     const limitMargin = 15;
     canvasCtx.save();
-    canvasCtx.strokeStyle = "#e4a663";
+    canvasCtx.strokeStyle = "#110c0e";
     canvasCtx.fillStyle = "#e4a663";
 
     // +Y axis
