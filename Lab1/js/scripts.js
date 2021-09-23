@@ -52,9 +52,9 @@ function validateInput() {
     return validX && validY && validR;
 
 }
+let form = $('#request-form')
 
-
-$('#request-form').submit(function (event) {
+form.submit(function (event) {
     event.preventDefault()
     if (!validateInput()) {
         alert('Заполните все поля формы');
@@ -64,6 +64,7 @@ $('#request-form').submit(function (event) {
     let action = "main.php";
 
     $.post(action, data, function (response) {
+        response = JSON.parse(response)
         if (response.RESULT_CODE === '0') {
             drawCanvas();
             response.RESULTS.map(item => {
@@ -72,8 +73,8 @@ $('#request-form').submit(function (event) {
                 drawPoint(item.x, item.y, item.r)
             })
         } else {
-            alert(response)
             console.log(response)
+
         }
     });
 });
