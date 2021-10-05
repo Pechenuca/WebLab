@@ -8,74 +8,71 @@
 </head>
 <body>
 
-    <header id="header">
+<header id="header">
     <h2>Лабораторная работа №1</h2>
-    </header>
+</header>
 
 <div id="sidebar">
 
-    <div class="canvas"><canvas id="canvas"></canvas></div>
+    <div class="canvas">
+        <canvas id="canvas"></canvas>
+    </div>
 
     <div class="form-table">
-        <form id="request-form" class="request">
+        <form id="request-form" class="request" name="form" onsubmit="submit_form(event)">
             <div class="sidebar x_row">
-            <div class="letter" id="enter_x">X:</div>
+                <div class="letter" id="enter_x">X:</div>
 
-            <div class="form-control">
+                <div class="form-control">
 
-                <input class="select_button" type="button" name="x" id="1" value="-3" onclick="set_x(-3)">
-                <input class="select_button" type="button" name="x" id="2" value="-2" onclick="set_x(-2)">
-                <input class="select_button" type="button" name="x" id="3" value="-1" onclick="set_x(-1)">
-                <input class="select_button" type="button" name="x" id="4" value="0" onclick="set_x(0)">
-                <input class="select_button" type="button" name="x" id="5" value="1" onclick="set_x(1)">
-                <input class="select_button" type="button" name="x" id="6" value="2" onclick="set_x(2)">
-                <input class="select_button" type="button" name="x" id="7" value="3" onclick="set_x(3)">
-                <input class="select_button" type="button" name="x" id="8" value="4" onclick="set_x(4)">
-                <input class="select_button" type="button" name="x" id="9" value="5" onclick="set_x(5)">
+                    <input class="select_button" type="button" name="x" id="1" value="-3" onclick="set_x(-3)">
+                    <input class="select_button" type="button" name="x" id="2" value="-2" onclick="set_x(-2)">
+                    <input class="select_button" type="button" name="x" id="3" value="-1" onclick="set_x(-1)">
+                    <input class="select_button" type="button" name="x" id="4" value="0" onclick="set_x(0)">
+                    <input class="select_button" type="button" name="x" id="5" value="1" onclick="set_x(1)">
+                    <input class="select_button" type="button" name="x" id="6" value="2" onclick="set_x(2)">
+                    <input class="select_button" type="button" name="x" id="7" value="3" onclick="set_x(3)">
+                    <input class="select_button" type="button" name="x" id="8" value="4" onclick="set_x(4)">
+                    <input class="select_button" type="button" name="x" id="9" value="5" onclick="set_x(5)">
+                </div>
             </div>
-            </div>
-
             <div class="sidebar text_Y">
                 <div class="letter" id="enter_y"> Y:</div>
 
-                    <input type="text" id="y" name="y"
-                           class="form-control" form="request-form"
-                           placeholder="value in [-3..5]" oninput="set_y(this.value)">
-
+                <input type="text" id="y" name="y"
+                       class="form-control" form="request-form"
+                       placeholder="value in [-3..5]" oninput="set_y(this.value)">
             </div>
-
             <div id="r-row" class="sidebar text_R">
                 <div class="letter" id="enter_r"> R:</div>
 
-                    <input type="text" id="r" name="r"
-                           class="form-control" form="request-form"
-                           placeholder="value in [1..4]" oninput="set_r(this.value)"
-                           onchange="validateInput()">
+                <input type="text" id="r" name="r"
+                       class="form-control" form="request-form"
+                       placeholder="value in [1..4]" oninput="set_r(this.value)"
+                       onchange="validateInput()">
 
             </div>
             <div id="submitButton">
                 <button class="butt" id="submit-btn" name="sendButton" type="submit">Отправить...</button>
             </div>
         </form>
-
     </div>
-
     <div class="results">
         <table class="results-table">
             <thead>
-                <tr> X </tr>
-                <tr> Y </tr>
-                <tr> R </tr>
-                <tr> RESULT </tr>
-                <tr> Current Time </tr>
-                <tr> Computation Time </tr>
+            <tr> X</tr>
+            <tr> Y</tr>
+            <tr> R</tr>
+            <tr> RESULT</tr>
+            <tr> Current Time</tr>
+            <tr> Computation Time</tr>
             </thead>
             <tbody id="results_table_body">
             </tbody>
         </table>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/axios.js"></script>
 <script src="js/canvas.js"></script>
 <script src="js/scripts.js"></script>
 </body>
