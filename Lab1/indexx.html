@@ -40,14 +40,14 @@
                 <div class="letter" id="enter_y"> Y:</div>
 
                 <input type="text" id="y" name="y"
-                       class="form-control" form="request-form"
+                       class="form-control" form="request-form" maxlength="8"
                        placeholder="value in [-3..5]" oninput="set_y(this.value)">
             </div>
             <div id="r-row" class="sidebar text_R">
                 <div class="letter" id="enter_r"> R:</div>
 
                 <input type="text" id="r" name="r"
-                       class="form-control" form="request-form"
+                       class="form-control" form="request-form" maxlength="8"
                        placeholder="value in [1..4]" oninput="set_r(this.value)"
                        onchange="validateInput()">
 

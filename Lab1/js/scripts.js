@@ -1,6 +1,10 @@
 let data = {
     x: 0, y: 0, r: 0
 }
+let max_y = parseFloat('5')
+let min_y = parseFloat('-3')
+let max_r = parseFloat('4')
+let min_r = parseFloat('-1')
 const button = document.getElementById('submit-btn')
 
 function set_x(value) {
@@ -15,41 +19,49 @@ function set_r(value) {
     data.r = parseFloat(value)
 }
 
+function check_if_undefined(x, y, r) {
+    if ((x === 'undefined' || null) && (y === 'undefined' || null) && (r === 'undefined' || null)) {
+        alert("Value is undefined")
+    }
+
+}
+
 function inRange(low, input, high, inclusive) {
-    console.log(input)
     inclusive = (typeof inclusive === "undefined") ? false : inclusive;
     if (inclusive && input >= low && input <= high) return true;
-    if (input > low && input < high) return true;
-    return false;
+    return input > low && input < high;
+
 }
+
 function validateX() {
     return true
 }
 
 function validateY(input) {
-    let val = parseFloat(input)
-    return !inRange(-3, val, 5, false)
 
+    let val = parseFloat(input).toPrecision(8)
+    console.log(val)
+    check_if_undefined(val)
+    return inRange(min_y, val, max_y, false)
 }
 
 function validateR(input) {
-    let val = parseFloat(input)
-    return !inRange(-3, val, 5, false)
-
+    let val = parseFloat(input).toPrecision(8)
+    console.log(val)
+    check_if_undefined(val)
+    return inRange(min_r, val, max_r, false)
 }
 
 function validateInput() {
-
     let validX, validY, validR
     validY = validateY(data.y)
     validR = validateR(data.r)
     validX = validateX(data.x)
+
     console.log(validX + ' ' + validY + ' ' + validR + ' ' + data.x)
     button.disabled = !(validX && validY && validR)
     return validX && validY && validR
 }
-
-let form = document.forms.form
 
 function submit_form(event) {
     event.preventDefault()
@@ -82,6 +94,7 @@ function submit_form(event) {
 * Adding results to the table
 * */
 function addResultRow(response) {
+
     let rowStyle = (response.result === 'true') ? 'green-row' : 'red-row'
     document.getElementById('results_table_body').innerHTML +=
         "<tr>" +
