@@ -1,4 +1,5 @@
 <?php
+session_start(true);
 $start = microtime(true);
 date_default_timezone_set("Europe/Moscow");
 
@@ -17,6 +18,12 @@ if (is_nan($x) or ($r < -1 or $r > 4) or ($y < -3 or $y > 5)
     die();
 }
 
+//if(file_exists('results.data')) {
+//    file_put_contents('results.data', ",".$response, FILE_APPEND | LOCK_EX);
+//} else {
+//    file_put_contents('results.data', $response, LOCK_EX);
+//}
+
 $response = toJSON([
 
     'x' => $x,
@@ -26,15 +33,40 @@ $response = toJSON([
     'currentTime' => date("Y-m-d H:i:s"),
     'computedTime' => round((microtime(true) - $start) * 1000, 6)
 ]);
+$now = date("H:i:s");
 
-if(file_exists('results.data')) {
-    file_put_contents('results.data', ",".$response, FILE_APPEND | LOCK_EX);
-} else {
-    file_put_contents('results.data', $response, LOCK_EX);
+$answer = array($x, $y, $r, checkInsideFunc($x, $y, $r), $now, microtime(true) - $start);
+
+if (!isset($_SESSION['data'])) {
+    $_SESSION['data'] = array();
 }
-
-echo($response);
-
+array_push($_SESSION['data'], $answer);
+if (!isset($_SESSION['data'])) {
+    $_SESSION['data'] = array();
+}
+array_push($_SESSION['data'], $answer);
+?>
+<table align="center" class="not-main-table">
+    <tr>
+        <th class="variable">X</th>
+        <th class="variable">Y</th>
+        <th class="variable">R</th>
+        <th>Result</th>
+        <th>Time</th>
+        <th>Script time</th>
+    </tr>
+    <?php foreach ($_SESSION['data'] as $word) { ?>
+        <tr>
+            <td><?php echo $word[0] ?></td>
+            <td><?php echo $word[1] ?></td>
+            <td><?php echo $word[2] ?></td>
+            <td><?php echo $word[3] ?></td>
+            <td><?php echo $word[4] ?></td>
+            <td><?php echo number_format($word[5], 10, ".", "") ?></td>
+        </tr>
+    <?php }?>
+</table>
+<?php
 function checkInsideFunc($x, $y, $r)
 {
     if (($x > 0 && $y > 0) && ($y <= sqrt($r * $r - $x * $x))
@@ -44,7 +76,6 @@ function checkInsideFunc($x, $y, $r)
         or ($x == 0 && $y == 0))
         return 'true';
     return 'false';
-
 
 }
 
@@ -71,21 +102,8 @@ function toJSON($o)
                     break;
                 }
             }
-
-            $result = array();
-
-            if ($foundKeys) {
-                foreach ($o as $k => $v) {
-                    $result [] = toJSON($k) . ':' . toJSON($v);
-                }
-
-                return '{' . implode(',', $result) . '}';
-            } else {
-                foreach ($o as $k => $v) {
-                    $result [] = toJSON($v);
-                }
-                return '[' . implode(',', $result) . ']';
-            }
     }
     return false;
 }
+
+

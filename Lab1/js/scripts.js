@@ -121,21 +121,3 @@ function addResultRow(response) {
 window.addEventListener('resize', drawCanvas)
 window.addEventListener("load", drawCanvas)
 button.addEventListener('change', drawCanvas)
-axios.post('/~s282351/init.php', body, {
-    headers: {
-        'Content-Type': 'application/json',
-    }
-})
-    .then(function (response) {
-        let result = response.data
-        result.forEach((item) => {
-            drawCanvas();
-
-            addResultRow(item)
-            drawPoint(item.x, item.y, item.r)
-        })
-
-    })
-    .catch(function (error) {
-        console.log(error)
-    });
