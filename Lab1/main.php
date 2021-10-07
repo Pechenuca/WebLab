@@ -26,8 +26,14 @@ $response = toJSON([
     'currentTime' => date("Y-m-d H:i:s"),
     'computedTime' => round((microtime(true) - $start) * 1000, 6)
 ]);
-echo($response);
 
+if(file_exists('results.data')) {
+    file_put_contents('results.data', ",".$response, FILE_APPEND | LOCK_EX);
+} else {
+    file_put_contents('results.data', $response, LOCK_EX);
+}
+
+echo($response);
 
 function checkInsideFunc($x, $y, $r)
 {
