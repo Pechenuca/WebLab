@@ -64,16 +64,25 @@ function validateInput() {
 }
 
 function submit_form(event) {
+
+    let body = new FormData();
+    for (let [key, value] of Object.entries(data)) {
+        body.append(key,value);
+    }
     event.preventDefault()
     if (!validateInput()) {
-        alert('Заполните все поля формы');
+        alert('Заполните все поля формы')
         return;
     }
-    axios.post('main.php', data)
+    axios.post('/~s282351/main.php', body, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
         .then(function (response) {
             let result = response.data
-            cache.push(result)
-            sessionStorage.setItem('results', JSON.stringify(cache))
+
+            //sessionStorage.setItem('results', JSON.stringify(cache))
 
             drawCanvas();
 
@@ -90,10 +99,12 @@ function submit_form(event) {
         });
 }
 
+
 /*
 * Adding results to the table
 * */
 function addResultRow(response) {
+    console.log(response)
 
     let rowStyle = (response.result === 'true') ? 'green-row' : 'red-row'
     document.getElementById('results_table_body').innerHTML +=
@@ -110,11 +121,3 @@ function addResultRow(response) {
 window.addEventListener('resize', drawCanvas)
 window.addEventListener("load", drawCanvas)
 button.addEventListener('change', drawCanvas)
-let cache = JSON.parse(sessionStorage.getItem('results'))
-if (cache == null) {
-    cache = []
-}
-cache.forEach(function (result) {
-    addResultRow(result)
-    drawPoint(result.x, result.y, result.r)
-})
